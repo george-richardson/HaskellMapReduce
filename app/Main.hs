@@ -1,6 +1,11 @@
 module Main where
 
-import Lib
+import Job
+import System.Environment
 
 main :: IO ()
-main = someFunc
+main = do 
+        args <- getArgs
+        if (head args) == "map"
+            then mapper
+            else reducer
