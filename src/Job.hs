@@ -3,8 +3,8 @@ module Job
       reducer
     ) where
 
-mapper :: [String] -> IO ()
-mapper args = putStrLn "THIS IS THE MAP"
+mapper :: IO ()
+mapper = putStrLn "THIS IS THE MAP"
 
-reducer :: [String] -> IO ()
-reducer args = putStrLn "THIS IS THE REDUCTION"
+reducer :: IO ()
+reducer = putStrLn "THIS IS THE REDUCTION"
