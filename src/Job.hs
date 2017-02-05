@@ -1,10 +1,18 @@
 module Job
-    ( mapper,
-      reducer
+    ( MapKey,
+      MapValue,
+      ReduceKey,
+      ReduceValue,
+      mapper,
+      reducer,
     ) where
 
-mapper :: IO ()
-mapper = putStrLn "THIS IS THE MAP"
+type MapKey = String
+type MapValue = Int
+type ReduceKey = String
+type ReduceValue = Int
 
-reducer :: IO ()
-reducer = putStrLn "THIS IS THE REDUCTION"
+mapper :: String -> [(MapKey, [MapValue])]
+mapper input = map (\a -> (a, [1])) (words input)
+reducer :: (MapKey, [MapValue]) -> (ReduceKey, ReduceValue)
+reducer input = (fst input, sum (snd input))

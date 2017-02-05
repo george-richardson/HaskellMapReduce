@@ -15,8 +15,8 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Job
-  build-depends:       base >= 4.7 && < 5
+  exposed-modules:     Job, JobRunner
+  build-depends:       base >= 4.7 && < 5, containers, aeson
   default-language:    Haskell2010
 
 executable HaskellMapReduce-exe
@@ -25,6 +25,10 @@ executable HaskellMapReduce-exe
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , HaskellMapReduce
+                     , aeson
+                     , bytestring
+                     , text
+                     , containers
   default-language:    Haskell2010
 
 test-suite HaskellMapReduce-test
